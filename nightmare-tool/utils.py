@@ -259,6 +259,8 @@ class Utils():
                     await asyncio.sleep(1)
                     await client.send_key(Keycode.X)
 
+                    await asyncio.sleep(2)
+
                     if await self.check_broken_dream(client):
                         return
 
@@ -267,9 +269,6 @@ class Utils():
                         await self.wait_for_range(client)
                         await asyncio.sleep(1)
                         await client.send_key(Keycode.X)
-
-                        if await self.check_broken_dream(client):
-                            return
 
             except asyncio.CancelledError:
                 print("[AUTOMATION] Dream Water cancelled.")
