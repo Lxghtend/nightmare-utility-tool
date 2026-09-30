@@ -8,7 +8,7 @@ If you enjoy my tools and would like to support future development,  please cons
 
 ---
 
-### 🔹 **nightmare-tool**   
+## 🔹 **nightmare-tool**   
 **Dungeon-specific features:**  
 - Portal teleports
 - Boss teleports
