@@ -190,6 +190,23 @@ class Utils():
             await WorldsCollideTP(client, await entity[0].location())
             print(f"{client.title} teleported to {entity_name}.")
 
+    async def break_idols(self):
+        async def wait_for_range(client: Client):
+            while True:
+                if self.is_visible_by_path(client.root_window, ['WorldView', 'NPCRangeWin']):
+                    return
+                await asyncio.sleep(0.1)
+
+        idol_positions = [(3690.726, -15581.208, 411.292), (1954.191, -15049.565, 405.440),
+                          (-2226.922, -16031.020, 400.254), (-3522.000, -15288.324, 410.040)]
+
+        client = self.foreground_client
+        if client:
+            for idol in idol_positions:
+                await client.teleport(XYZ(*idol))
+                await wait_for_range(client)
+                await client.send_key(Keycode.X)
+
     async def grab_item(self, entity_name: str):
         client = self.foreground_client
         if client:
