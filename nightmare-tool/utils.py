@@ -190,13 +190,13 @@ class Utils():
             await WorldsCollideTP(client, await entity[0].location())
             print(f"{client.title} teleported to {entity_name}.")
 
-    async def break_idols(self):
-        async def wait_for_range(client: Client):
-            while True:
-                if self.is_visible_by_path(client.root_window, ['WorldView', 'NPCRangeWin']):
-                    return
-                await asyncio.sleep(0.1)
+    async def wait_for_range(self, client: Client):
+        while True:
+            if self.is_visible_by_path(client.root_window, ['WorldView', 'NPCRangeWin']):
+                return
+            await asyncio.sleep(0.1)
 
+    async def break_idols(self):
         idol_positions = [(3690.726, -15581.208, 411.292), (1954.191, -15049.565, 405.440),
                           (-2226.922, -16031.020, 400.254), (-3522.000, -15288.324, 410.040)]
 
@@ -204,6 +204,68 @@ class Utils():
         if client:
             for idol in idol_positions:
                 await client.teleport(XYZ(*idol))
-                await wait_for_range(client)
+                await self.wait_for_range(client)
                 await asyncio.sleep(0.1)
                 await client.send_key(Keycode.X)
+
+    async def check_broken_dream(self, client) -> bool:
+        client_position = await client.body.position()
+        if client_position == XYZ(-148.000, -11751.999, 436.000):
+            return True
+
+        return False
+
+    async def dreamwater(self):
+        sleeper_positions = [(-277.11358642578125, -25830.056640625, 332.819091796875),
+            (-879.7774047851562, -27695.830078125, 332.819091796875),
+            (631.965087890625, -27503.0234375, 332.819091796875)]
+
+        dreamwater_positions = [
+            (17690.548828125, -19879.84765625, 347.0538330078125),
+            (14345.3720703125, -22480.83203125, 337.429443359375),
+            (9410.283203125, -19600.91796875, 337.4325866699219),
+            (13975.2001953125, -28369.369140625, 337.6564025878906),
+            (9534.2197265625, -35531.0859375, 337.2992248535156),
+            (1276.478271484375, -17722.1328125, 338.7263488769531),
+            (2115.623779296875, -21331.74609375, 337.7518310546875),
+            (4404.2236328125, -22432.185546875, 337.8857421875),
+            (-2705.47509765625, -18066.244140625, 337.83892822265625),
+            (-7566.29443359375, -22091.8515625, 337.05633544921875),
+            (-10900.3154296875, -24096.162109375, 337.7960205078125),
+            (-14106.8681640625, -17755.119140625, 337.7401123046875),
+            (-15030.1728515625, -19808.513671875, 336.02862548828125),
+            (-18101.087890625, -20287.6953125, 338.0257568359375),
+            (-3082.203369140625, -26576.857421875, 385.1693420410156),
+            (-6698.95458984375, -26106.42578125, 337.7475891113281),
+            (-14606.390625, -30870.869140625, 337.50274658203125),
+            (-16999.693359375, -33679.921875, 338.0223083496094),
+            (-1700.6639404296875, -35839.40625, 339.056640625),
+            (4383.9609375, -32568.654296875, 337.9153137207031),
+            (6367.15478515625, -29292.587890625, 339.1195068359375),
+            (6132.337890625, -27502.78515625, 337.72210693359375),
+            (10352.8310546875, -31497.4609375, 337.85174560546875),
+            (15357.1357421875, -33545.8125, 338.0357666015625),
+            (238.40765380859375, -29302.095703125, 385.3066711425781),
+            (12152.876953125, -19342.18359375, 380.29766845703125),
+            (-2404.990234375, -32785.734375, 376.5253601074219),
+        ]
+
+        client = self.foreground_client
+        if client:
+            for dreamwater in dreamwater_positions:
+                await client.teleport(XYZ(*dreamwater))
+                await self.wait_for_range(client)
+                await asyncio.sleep(0.1)
+                await client.send_key(Keycode.X)
+
+                if await self.check_broken_dream(client):
+                    return
+
+                for sleeper in sleeper_positions:
+                    await client.teleport(XYZ(*sleeper))
+                    await self.wait_for_range(client)
+                    await asyncio.sleep(0.1)
+                    await client.send_key(Keycode.X)
+
+                    if await self.check_broken_dream(client):
+                        return
