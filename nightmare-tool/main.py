@@ -689,7 +689,7 @@ class AutomationTab(QWidget):
     async def handle_dream_water(self):
         print("[AUTOMATION] Dream Water pressed.")
 
-        pass
+        await self.utils.dreamwater()
 
     @asyncSlot()
     async def handle_idols(self):
