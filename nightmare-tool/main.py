@@ -14,7 +14,6 @@ from themes import Themes
 
 sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "shared"))
 from updater import check_for_update, trigger_update
-from tracking import send_ping
 
 class HooksTab(QWidget):
     def __init__(self, utils: Utils, hooked_clients: list):
