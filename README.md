@@ -2,7 +2,7 @@
 
 ## [Join the discord community...](https://discord.gg/2xBeynxstw)
 
-A utility tool designed to assist with the **Nightmare Dungeon**, the final dungeon of **Wallaru**.  A popup will appear when a new update has been released.  Updates can be installed with only one click.
+A utility tool designed to assist with the **Nightmare Dungeon**, the final dungeon of **Wallaru**.  This tool works with challenge mode **and** normal mode.  A popup will appear when a new update has been released.  Updates can be installed with only one click.
 
 If you enjoy my tools and would like to support future development,  please consider [buying me a coffee](https://www.buymeacoffee.com/lxghtend).  
 
