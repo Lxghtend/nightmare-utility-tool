@@ -21,8 +21,8 @@ custom_theme = {
 class Themes():
     def __init__(self):
         self.default = ""
-        
-        self.polaris = """
+
+        self.nightmare = """
             /* ==============================
             Polaris Theme - PyQt6
             Frosted winter, icy elegance & aurora skies
@@ -280,7 +280,7 @@ class Themes():
                 color: #001226;
                 font-weight: 700;
             }
-        """          
+        """
 
         self.celestia =  """
             /* ==============================

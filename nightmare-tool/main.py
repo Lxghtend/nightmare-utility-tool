@@ -403,35 +403,35 @@ class PortalsTab(QWidget):
 
     @asyncSlot()
     async def handle_inside_yellow_portal(self):
-        pass
+       await self.utils.handle_basic_teleport(15347.999, -14231.999, 328.000)
 
     @asyncSlot()
     async def handle_inside_blue_portal(self):
-        pass
+        await self.utils.handle_basic_teleport(15357.581, -38994.316, 335.450)
 
     @asyncSlot()
     async def handle_inside_green_portal(self):
-        pass
+        await self.utils.handle_basic_teleport(-15682.201, -39139.546, 336.191)
 
     @asyncSlot()
     async def handle_inside_pink_portal(self):
-        pass
+        await self.utils.handle_basic_teleport(-15839.999, -14227.999, 328.000)
 
     @asyncSlot()
     async def handle_outside_yellow_portal(self):
-        pass
+        await self.utils.handle_basic_teleport(5806.903, -14577.535, 414.030)
 
     @asyncSlot()
     async def handle_outside_blue_portal(self):
-        pass
+        await self.utils.handle_basic_teleport(5843.190, -15631.522, 410.240)
 
     @asyncSlot()
     async def handle_outside_green_portal(self):
-        pass
+        await self.utils.handle_basic_teleport(-5935.393, -15682.678, 408.350)
 
     @asyncSlot()
     async def handle_outside_pink_portal(self):
-        pass
+        await self.utils.handle_basic_teleport(-5839.460, -14560.791, 410.588)
 
 
 class BossesTab(QWidget):
@@ -500,15 +500,15 @@ class BossesTab(QWidget):
 
     @asyncSlot()
     async def handle_dragon(self):
-        pass
+        await self.utils.handle_basic_teleport(-5839.460, -14560.791, 410.588)
 
     @asyncSlot()
     async def handle_krok(self):
-        pass
+        await self.utils.handle_basic_teleport(-15624.958, -26149.779, 337.719)
 
     @asyncSlot()
     async def handle_malus(self):
-        pass
+        await self.utils.handle_basic_teleport(-1544.024, -28651.068, 337.379)
 
 
 class PrayerTab(QWidget):
@@ -592,19 +592,19 @@ class PrayerTab(QWidget):
 
     @asyncSlot()
     async def handle_dragon_school_wheel(self):
-        pass
+        await self.utils.handle_basic_teleport(15999.055, -17869.972, 337.223)
 
     @asyncSlot()
     async def handle_dragon_wildlife_wheel(self):
-        pass
+        await self.utils.handle_basic_teleport(15142.157, -35529.484, 337.710)
 
     @asyncSlot()
     async def handle_krok_school_wheel(self):
-        pass
+        await self.utils.handle_basic_teleport(-16375.003, -35788.078, 337.454)
 
     @asyncSlot()
     async def handle_krok_astral_wheel(self):
-        pass
+        await self.utils.handle_basic_teleport(-15510.254, -18039.664, 337.702)
 
 
 class AutomationTab(QWidget):
@@ -1047,9 +1047,9 @@ class MainWindow(QWidget):
         self.use_raid_theme = self.utils.read_config()["use_raid_theme"]
 
         if self.use_raid_theme:
-            self.window().setStyleSheet(self.themes.polaris)
+            self.window().setStyleSheet(self.themes.nightmare)
 
-        self.setWindowTitle("Cabal's Revenge Cheat Tool - Lxghtend")
+        self.setWindowTitle("Nightmare Dungeon Cheat Tool - Lxghtend")
         self.resize(600, 400)
 
         layout = QVBoxLayout(self)
