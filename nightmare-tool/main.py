@@ -661,7 +661,7 @@ class AutomationTab(QWidget):
 
     @asyncSlot()
     async def handle_idols(self):
-        await self.utils.handle_idols()
+        await self.utils.break_idols()
 
 
 class UtilityTab(QWidget):
