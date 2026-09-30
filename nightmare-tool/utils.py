@@ -205,6 +205,7 @@ class Utils():
             for idol in idol_positions:
                 await client.teleport(XYZ(*idol))
                 await wait_for_range(client)
+                await asyncio.sleep(0.1)
                 await client.send_key(Keycode.X)
 
     async def grab_item(self, entity_name: str):
