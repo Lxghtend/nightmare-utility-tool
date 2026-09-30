@@ -207,38 +207,3 @@ class Utils():
                 await wait_for_range(client)
                 await asyncio.sleep(0.1)
                 await client.send_key(Keycode.X)
-
-    async def grab_item(self, entity_name: str):
-        client = self.foreground_client
-        if client:
-            original_location = await client.body.position()
-
-            item = await client.get_base_entities_with_name(entity_name)
-
-            if not item:
-                print(f"{client.title} did not find {entity_name}.")
-                return
-
-            item_position = await item[0].location()
-
-            await WorldsCollideTP(client, item_position)
-            await asyncio.sleep(0.1)
-
-            if await client.body.position() == original_location:
-                return
-
-            while not await self.is_visible_by_path(client.root_window, ['WorldView', 'NPCRangeWin', 'wndTitleBackground']):
-                if await client.body.position() == original_location:
-                    break
-                await asyncio.sleep(0.1)
-
-            while True:
-                if not await self.is_visible_by_path(client.root_window, ['WorldView', 'NPCRangeWin', 'wndTitleBackground']):
-                    break
-                await client.send_key(Keycode.X, 0.1)
-                await asyncio.sleep(0.1)
-
-            if await client.body.position() != original_location:
-                await client.teleport(original_location)
-
-            print(f"{client.title} grabbed {entity_name}.")
