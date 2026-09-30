@@ -255,7 +255,7 @@ class Utils():
             for dreamwater in dreamwater_positions:
                 await client.teleport(XYZ(*dreamwater))
                 await self.wait_for_range(client)
-                await asyncio.sleep(0.1)
+                await asyncio.sleep(1)
                 await client.send_key(Keycode.X)
 
                 if await self.check_broken_dream(client):
@@ -264,7 +264,7 @@ class Utils():
                 for sleeper in sleeper_positions:
                     await client.teleport(XYZ(*sleeper))
                     await self.wait_for_range(client)
-                    await asyncio.sleep(0.1)
+                    await asyncio.sleep(1)
                     await client.send_key(Keycode.X)
 
                     if await self.check_broken_dream(client):
