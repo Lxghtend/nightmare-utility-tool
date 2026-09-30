@@ -210,7 +210,7 @@ class Utils():
 
     async def check_broken_dream(self, client) -> bool:
         client_position = await client.body.position()
-        if client_position == XYZ(-148.000, -11751.999, 436.000):
+        if tuple(client_position) == (-148.000, -11751.999, 436.000):
             return True
 
         return False
