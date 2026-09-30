@@ -39,7 +39,7 @@ class Utils():
                     window = (await client.root_window.get_windows_with_name('txtTestRealmText'))[0]
 
                     await write_window_rectangle(window, 10, 146, 153, 165)
-                    
+
                     await window.write_maybe_text('HOOKED')
                     await window.write_flags(WindowFlags.visible)
 
@@ -63,7 +63,7 @@ class Utils():
         settings["toggle_freecam"] = self.config_parser.get("Keybinds", "toggle_freecam", fallback="F5")
         settings["handle_freecam_teleport"] = self.config_parser.get("Keybinds", "handle_freecam_teleport", fallback="F6")
         settings["toggle_auto_dialogue"] = self.config_parser.get("Keybinds", "toggle_auto_dialogue", fallback="F7")
-        
+
         return settings
 
     async def is_visible_by_path(self, base_window: Window, path: list[str]):
@@ -110,7 +110,7 @@ class Utils():
     async def handle_auto_dialogue(self, client: Client):
         try:
             print(f"{client.title} auto dialogue activated.")
-                
+
             while True:
                 if await self.is_visible_by_path(client.root_window, ['WorldView', 'wndDialogMain', 'btnRight']):
                     await client.send_key(Keycode.SPACEBAR)
@@ -118,11 +118,11 @@ class Utils():
 
         except asyncio.CancelledError:
                 print(f"{client.title} auto dialogue deactivated.")
-        
+
     async def handle_speedhack(self, client: Client):
         try:
             print(f"{client.title} speedhack activated.")
-            
+
             while True:
                 await client.client_object.write_speed_multiplier(400)
                 await asyncio.sleep(1)
@@ -200,7 +200,7 @@ class Utils():
             if not item:
                 print(f"{client.title} did not find {entity_name}.")
                 return
-            
+
             item_position = await item[0].location()
 
             await WorldsCollideTP(client, item_position)
@@ -224,47 +224,3 @@ class Utils():
                 await client.teleport(original_location)
 
             print(f"{client.title} grabbed {entity_name}.")
-
-    async def fix_catapult(self, catapult_location_x: float, catapult_location_y: float, catapult_location_z: float):
-        client = self.foreground_client
-        if client:
-            print(f"{client.title} started fixing catapult.")
-            try:
-                for i in range(6):
-                    ropes = await client.get_base_entities_with_name("Raid-PL-Gear")
-                    if ropes:
-                        rope = ropes[0]
-                        rope_xyz = await rope.location()
-                        await client.teleport(XYZ(rope_xyz.x, rope_xyz.y, (rope_xyz.z - 250)))
-
-                        while not await self.is_visible_by_path(client.root_window, ['WorldView', 'NPCRangeWin', 'wndTitleBackground']):
-                            await asyncio.sleep(0.1)
-
-                        while True:
-                            await client.send_key(Keycode.X, 0.1)
-                            await asyncio.sleep(0.1)
-                            if not await self.is_visible_by_path(client.root_window, ['WorldView', 'NPCRangeWin', 'wndTitleBackground']):
-                                break
-                        
-                        await asyncio.sleep(5)
-
-                        await client.teleport(XYZ(catapult_location_x, catapult_location_y, catapult_location_z))
-
-                        while not await self.is_visible_by_path(client.root_window, ['WorldView', 'NPCRangeWin', 'wndTitleBackground']):
-                            await asyncio.sleep(0.1)
-
-                        while True:
-                            await client.send_key(Keycode.X, 0.1)
-                            await asyncio.sleep(0.1)
-                            if not await self.is_visible_by_path(client.root_window, ['WorldView', 'NPCRangeWin', 'wndTitleBackground']):
-                                break
-
-                        print(f"[CATAPULTS] {i+1}/6")
-                        await asyncio.sleep(1)
-
-                    await asyncio.sleep(1)
-
-                print(f"[CATAPULTS] catapult successfully fixed.")
-
-            except asyncio.CancelledError:
-                print(f"[CATAPULTS] cancelled at {i+1}.")

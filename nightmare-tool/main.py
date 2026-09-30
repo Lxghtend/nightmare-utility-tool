@@ -453,10 +453,62 @@ class BossesTab(QWidget):
         self.bosses_group_layout.addWidget(self.bosses_group)
         # ---------------------------------- #
 
-        self.status_label = QLabel("Bosses controls have not been configured yet.")
-        self.status_label.setWordWrap(True)
-        self.bosses_tab_layout.addWidget(self.status_label)
-        self.bosses_tab_layout.addStretch()
+        # ----- Dragon Button ----- #
+        dragon_button = QPushButton("Dragon")
+
+        dragon_button.setSizePolicy(
+            QSizePolicy.Policy.Expanding,
+            QSizePolicy.Policy.Preferred
+        )
+
+        dragon_button.setMinimumHeight(50)
+
+        dragon_button.clicked.connect(self.handle_dragon)
+
+        self.bosses_tab_layout.addWidget(dragon_button)
+        # ------------------------- #
+
+        # ----- Krok Button ----- #
+        krok_button = QPushButton("Krok")
+
+        krok_button.setSizePolicy(
+            QSizePolicy.Policy.Expanding,
+            QSizePolicy.Policy.Preferred
+        )
+
+        krok_button.setMinimumHeight(50)
+
+        krok_button.clicked.connect(self.handle_krok)
+
+        self.bosses_tab_layout.addWidget(krok_button)
+        # ----------------------- #
+
+        # ----- Malus Button ----- #
+        malus_button = QPushButton("Malus")
+
+        malus_button.setSizePolicy(
+            QSizePolicy.Policy.Expanding,
+            QSizePolicy.Policy.Preferred
+        )
+
+        malus_button.setMinimumHeight(50)
+
+        malus_button.clicked.connect(self.handle_malus)
+
+        self.bosses_tab_layout.addWidget(malus_button)
+        # ------------------------ #
+
+    @asyncSlot()
+    async def handle_dragon(self):
+        pass
+
+    @asyncSlot()
+    async def handle_krok(self):
+        pass
+
+    @asyncSlot()
+    async def handle_malus(self):
+        pass
 
 
 class PrayerTab(QWidget):
@@ -470,18 +522,89 @@ class PrayerTab(QWidget):
         self.setLayout(self.prayer_group_layout)
         # --------------------------- #
 
-        # ----- Creating Prayer Group ----- #
-        self.prayer_group = QGroupBox("Prayer")
+        # ----- Creating Prayer Wheels Group ----- #
+        self.prayer_group = QGroupBox("Prayer Wheels")
         self.prayer_tab_layout = QVBoxLayout()
 
         self.prayer_group.setLayout(self.prayer_tab_layout)
         self.prayer_group_layout.addWidget(self.prayer_group)
         # ---------------------------------- #
 
-        self.status_label = QLabel("Prayer controls have not been configured yet.")
-        self.status_label.setWordWrap(True)
-        self.prayer_tab_layout.addWidget(self.status_label)
-        self.prayer_tab_layout.addStretch()
+        # ----- Dragon School Wheel Button ----- #
+        dragon_school_wheel_button = QPushButton("Dragon School Wheel")
+
+        dragon_school_wheel_button.setSizePolicy(
+            QSizePolicy.Policy.Expanding,
+            QSizePolicy.Policy.Preferred
+        )
+
+        dragon_school_wheel_button.setMinimumHeight(50)
+
+        dragon_school_wheel_button.clicked.connect(self.handle_dragon_school_wheel)
+
+        self.prayer_tab_layout.addWidget(dragon_school_wheel_button)
+        # -------------------------------------- #
+
+        # ----- Dragon Wildlife Wheel Button ----- #
+        dragon_wildlife_wheel_button = QPushButton("Dragon Wildlife Wheel")
+
+        dragon_wildlife_wheel_button.setSizePolicy(
+            QSizePolicy.Policy.Expanding,
+            QSizePolicy.Policy.Preferred
+        )
+
+        dragon_wildlife_wheel_button.setMinimumHeight(50)
+
+        dragon_wildlife_wheel_button.clicked.connect(self.handle_dragon_wildlife_wheel)
+
+        self.prayer_tab_layout.addWidget(dragon_wildlife_wheel_button)
+        # ---------------------------------------- #
+
+        # ----- Krok School Wheel Button ----- #
+        krok_school_wheel_button = QPushButton("Krok School Wheel")
+
+        krok_school_wheel_button.setSizePolicy(
+            QSizePolicy.Policy.Expanding,
+            QSizePolicy.Policy.Preferred
+        )
+
+        krok_school_wheel_button.setMinimumHeight(50)
+
+        krok_school_wheel_button.clicked.connect(self.handle_krok_school_wheel)
+
+        self.prayer_tab_layout.addWidget(krok_school_wheel_button)
+        # ------------------------------------ #
+
+        # ----- Krok Astral Wheel Button ----- #
+        krok_astral_wheel_button = QPushButton("Krok Astral Wheel")
+
+        krok_astral_wheel_button.setSizePolicy(
+            QSizePolicy.Policy.Expanding,
+            QSizePolicy.Policy.Preferred
+        )
+
+        krok_astral_wheel_button.setMinimumHeight(50)
+
+        krok_astral_wheel_button.clicked.connect(self.handle_krok_astral_wheel)
+
+        self.prayer_tab_layout.addWidget(krok_astral_wheel_button)
+        # ------------------------------------ #
+
+    @asyncSlot()
+    async def handle_dragon_school_wheel(self):
+        pass
+
+    @asyncSlot()
+    async def handle_dragon_wildlife_wheel(self):
+        pass
+
+    @asyncSlot()
+    async def handle_krok_school_wheel(self):
+        pass
+
+    @asyncSlot()
+    async def handle_krok_astral_wheel(self):
+        pass
 
 
 class AutomationTab(QWidget):
@@ -503,10 +626,43 @@ class AutomationTab(QWidget):
         self.automation_group_layout.addWidget(self.automation_group)
         # ---------------------------------- #
 
-        self.status_label = QLabel("Automation controls have not been configured yet.")
-        self.status_label.setWordWrap(True)
-        self.automation_tab_layout.addWidget(self.status_label)
-        self.automation_tab_layout.addStretch()
+        # ----- Dream Water Button ----- #
+        dream_water_button = QPushButton("Dream Water")
+
+        dream_water_button.setSizePolicy(
+            QSizePolicy.Policy.Expanding,
+            QSizePolicy.Policy.Preferred
+        )
+
+        dream_water_button.setMinimumHeight(50)
+
+        dream_water_button.clicked.connect(self.handle_dream_water)
+
+        self.automation_tab_layout.addWidget(dream_water_button)
+        # ------------------------------ #
+
+        # ----- Idols Button ----- #
+        idols_button = QPushButton("Idols")
+
+        idols_button.setSizePolicy(
+            QSizePolicy.Policy.Expanding,
+            QSizePolicy.Policy.Preferred
+        )
+
+        idols_button.setMinimumHeight(50)
+
+        idols_button.clicked.connect(self.handle_idols)
+
+        self.automation_tab_layout.addWidget(idols_button)
+        # ------------------------ #
+
+    @asyncSlot()
+    async def handle_dream_water(self):
+        pass
+
+    @asyncSlot()
+    async def handle_idols(self):
+        pass
 
 
 class UtilityTab(QWidget):
