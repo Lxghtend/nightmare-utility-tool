@@ -1215,8 +1215,6 @@ def main():
 
     app = QApplication(sys.argv)
 
-    send_ping()
-
     appid = "lxghtend.nightmare.tool.1.0"
     ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(appid)
 
