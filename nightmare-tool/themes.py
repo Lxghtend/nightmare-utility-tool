@@ -23,100 +23,177 @@ class Themes():
         self.default = ""
 
         self.nightmare = """
-            /* ==============================
-            Polaris Theme - PyQt6
-            Frosted winter, icy elegance & aurora skies
-            Font: serif (storybook, regal vibe)
-            ============================== */
-
-            /* Base widget background */
+            /* The Nightmare: shadowed Wallaru stone and luminous dream water. */
             QWidget {
-                background-color: #1A2E40;    /* deep polar night blue */
-                color: #EAF6FF;               /* frosty snow-white text */
-                font-family: "Times New Roman", "Georgia", "Garamond", serif;
-                font-style: italic;
+                background-color: #121024;
+                color: #F2EAFF;
+                font-family: "Segoe UI", "Verdana", sans-serif;
                 font-size: 14px;
             }
 
-            /* Buttons */
-            QPushButton {
-                background-color: #3C6E91;    /* icy steel-blue */
-                color: #FFFFFF;               /* crisp snow text */
-                border: 2px solid #5FA8D3;    /* frosted border */
+            /* Violet storm above the dark outback silhouette. */
+            QTabWidget::pane {
+                background: #19132E;
+                border: 1px solid #564074;
                 border-radius: 8px;
-                padding: 6px 12px;
-                font-size: 18px;
             }
-            QPushButton:hover {
-                background-color: #5FA8D3;    /* aurora-sky blue highlight */
-                border: 2px solid #A2D9FF;    /* shimmering ice edge */
+            QTabBar::tab {
+                background: #201936;
+                color: #C6B7DF;
+                border: 1px solid #45345E;
+                border-bottom: 3px solid #45345E;
+                border-top-left-radius: 6px;
+                border-top-right-radius: 6px;
+                padding: 7px 8px;
+                margin-right: 2px;
+                font-size: 12px;
             }
-            QPushButton:pressed {
-                background-color: #2C4F6C;    /* deeper frozen blue */
-                border: 2px solid #173040;    /* polar midnight */
-                color: #EAF6FF;
+            QTabBar::tab:hover {
+                background: #35204F;
+                color: #FFFFFF;
+                border-bottom-color: #AC79EA;
+            }
+            QTabBar::tab:selected {
+                background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                                            stop:0 #623293, stop:1 #302047);
+                color: #FFF2FF;
+                border-color: #AE73E8;
+                border-bottom-color: #F2A0F5;
             }
 
-            /* Labels */
-            QLabel {
-                color: #B8E3FF;               /* pale icy glow */
-                font-size: 15px;
+            /* Rock-dark panels with a faint pool of violet light. */
+            QGroupBox {
+                background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+                                            stop:0 #28203E, stop:1 #19152C);
+                border: 1px solid #635077;
+                border-radius: 8px;
+                margin-top: 14px;
+                padding: 12px 8px 8px;
                 font-weight: bold;
             }
+            QGroupBox::title {
+                subcontrol-origin: margin;
+                subcontrol-position: top left;
+                left: 12px;
+                padding: 0 6px;
+                color: #E6B3F5;
+                background-color: #121024;
+            }
 
-            /* Line edits (text boxes) */
-            QLineEdit {
-                background-color: #223B52;    /* cold twilight blue */
-                color: #EAF6FF;
-                border: 1px solid #5FA8D3;    /* icy outline */
+            /* Dream water: indigo depths, violet energy, pink-lit edges. */
+            QPushButton {
+                background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+                                            stop:0 #43306A, stop:0.55 #352351, stop:1 #29203F);
+                color: #F8F0FF;
+                border: 2px solid #8660B1;
+                border-radius: 8px;
+                padding: 6px 12px;
+                font-size: 16px;
+            }
+            QPushButton:hover {
+                background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+                                            stop:0 #7240A6, stop:0.55 #593185, stop:1 #442768);
+                border-color: #E7A0F2;
+                color: #FFFFFF;
+            }
+            QPushButton:focus {
+                border-color: #BDEEFF;
+            }
+            QPushButton:pressed, QPushButton:checked {
+                background: #302044;
+                border-color: #F0B1FA;
+                color: #FFE8FF;
+            }
+            QPushButton:disabled {
+                background: #211D2C;
+                border-color: #484051;
+                color: #93889F;
+            }
+
+            QLabel {
+                background: transparent;
+                color: #DDD0EF;
+            }
+            QCheckBox, QRadioButton {
+                background: transparent;
+                color: #E8DDF7;
+                spacing: 8px;
+            }
+            QCheckBox::indicator {
+                width: 16px;
+                height: 16px;
+                background: #211A34;
+                border: 2px solid #8660B1;
+                border-radius: 4px;
+            }
+            QCheckBox::indicator:checked {
+                background: #D99AEF;
+                border-color: #F5DCFF;
+            }
+            QCheckBox::indicator:hover {
+                border-color: #BDEEFF;
+            }
+            QCheckBox:focus {
+                color: #BDEEFF;
+            }
+
+            QLineEdit, QTextEdit, QPlainTextEdit, QComboBox, QSpinBox, QDoubleSpinBox {
+                background: #1C172D;
+                color: #F2EAFF;
+                border: 1px solid #77588F;
                 border-radius: 6px;
-                padding: 4px;
+                padding: 5px;
+                selection-background-color: #704299;
+                selection-color: #FFFFFF;
             }
-            QLineEdit:focus {
-                border: 2px solid #A2D9FF;    /* glowing frost */
-                background-color: #2E4B68;    /* lighter frozen tone */
+            QLineEdit:focus, QTextEdit:focus, QPlainTextEdit:focus,
+            QComboBox:focus, QSpinBox:focus, QDoubleSpinBox:focus {
+                border-color: #E7A0F2;
             }
-
-            /* ComboBox */
-            QComboBox {
-                background-color: #2A4661;
-                color: #EAF6FF;
-                border: 1px solid #5FA8D3;
-                border-radius: 6px;
-                padding: 4px;
-            }
-            QComboBox:hover {
-                background-color: #5FA8D3;    /* aurora shimmer */
+            QComboBox QAbstractItemView {
+                background: #211A34;
+                color: #F2EAFF;
+                selection-background-color: #593185;
+                selection-color: #FFFFFF;
             }
 
-            /* Scrollbars */
             QScrollBar:vertical {
-                background: #162635;
+                background: #171225;
                 width: 12px;
+                margin: 0px;
             }
             QScrollBar::handle:vertical {
-                background: #5FA8D3;          /* icy handle */
+                background: #78569C;
+                min-height: 24px;
                 border-radius: 6px;
             }
             QScrollBar::handle:vertical:hover {
-                background: #A2D9FF;          /* glowing aurora */
+                background: #D99AEF;
             }
-            QScrollBar::add-line:vertical,
-            QScrollBar::sub-line:vertical {
-                background: none;
+            QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
+                height: 0px;
+            }
+            QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+                background: transparent;
             }
 
-            /* Progress Bar */
             QProgressBar {
-                border: 2px solid #5FA8D3;
-                border-radius: 8px;
-                text-align: center;
+                background: #1C172D;
                 color: #FFFFFF;
-                background-color: #223B52;
+                border: 1px solid #8660B1;
+                border-radius: 6px;
+                text-align: center;
             }
             QProgressBar::chunk {
-                background-color: #A2D9FF;    /* icy aurora chunk */
-                border-radius: 6px;
+                background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+                                            stop:0 #55338A, stop:0.6 #8642BB, stop:1 #B15CAC);
+                border-radius: 5px;
+            }
+            QToolTip {
+                background: #2B203D;
+                color: #F8F0FF;
+                border: 1px solid #D99AEF;
+                padding: 6px;
             }
         """
 

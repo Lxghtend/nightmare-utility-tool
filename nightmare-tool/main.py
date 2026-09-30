@@ -885,20 +885,20 @@ class ThemesTab(QWidget):
         self.main_themes_group_layout.addWidget(default_theme_button_button)
         # -------------------------------- #
 
-        # ----- Polaris Theme Button ----- #
-        polaris_theme_button_button = QPushButton("Polaris Theme")
+        # ----- Nightmare Theme Button ----- #
+        nightmare_theme_button_button = QPushButton("Nightmare Theme")
 
-        polaris_theme_button_button.setSizePolicy(
+        nightmare_theme_button_button.setSizePolicy(
             QSizePolicy.Policy.Expanding,
             QSizePolicy.Policy.Preferred
         )
 
-        #polaris_theme_button_button.setMaximumHeight(50)
-        #polaris_theme_button_button.setMinimumHeight(50)
+        #nightmare_theme_button_button.setMaximumHeight(50)
+        #nightmare_theme_button_button.setMinimumHeight(50)
 
-        polaris_theme_button_button.clicked.connect(self.enable_polaris_theme)
+        nightmare_theme_button_button.clicked.connect(self.enable_nightmare_theme)
 
-        self.main_themes_group_layout.addWidget(polaris_theme_button_button)
+        self.main_themes_group_layout.addWidget(nightmare_theme_button_button)
         # -------------------------------- #
 
         # ----- Custom Theme Button ----- #
@@ -976,10 +976,10 @@ class ThemesTab(QWidget):
 
         self.window().setStyleSheet(self.themes.default)
 
-    def enable_polaris_theme(self):
-        print(f"[THEMES] Polaris theme enabled.")
+    def enable_nightmare_theme(self):
+        print(f"[THEMES] Nightmare theme enabled.")
 
-        self.window().setStyleSheet(self.themes.polaris)
+        self.window().setStyleSheet(self.themes.nightmare)
 
     def enable_custom_theme(self):
         themes_directory = os.path.join(
