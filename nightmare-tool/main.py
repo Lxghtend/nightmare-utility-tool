@@ -499,7 +499,7 @@ class BossesTab(QWidget):
 
     @asyncSlot()
     async def handle_dragon(self):
-        await self.utils.handle_basic_teleport(-5839.460, -14560.791, 410.588)
+        await self.utils.handle_basic_teleport(15482.805, -27428.171, 335.950)
 
     @asyncSlot()
     async def handle_krok(self):
