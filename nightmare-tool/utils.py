@@ -252,20 +252,24 @@ class Utils():
 
         client = self.foreground_client
         if client:
-            for dreamwater in dreamwater_positions:
-                await client.teleport(XYZ(*dreamwater))
-                await self.wait_for_range(client)
-                await asyncio.sleep(1)
-                await client.send_key(Keycode.X)
-
-                if await self.check_broken_dream(client):
-                    return
-
-                for sleeper in sleeper_positions:
-                    await client.teleport(XYZ(*sleeper))
+            try:
+                for dreamwater in dreamwater_positions:
+                    await client.teleport(XYZ(*dreamwater))
                     await self.wait_for_range(client)
                     await asyncio.sleep(1)
                     await client.send_key(Keycode.X)
 
                     if await self.check_broken_dream(client):
                         return
+
+                    for sleeper in sleeper_positions:
+                        await client.teleport(XYZ(*sleeper))
+                        await self.wait_for_range(client)
+                        await asyncio.sleep(1)
+                        await client.send_key(Keycode.X)
+
+                        if await self.check_broken_dream(client):
+                            return
+
+            except asyncio.CancelledError:
+                print("[AUTOMATION] Dream Water cancelled.")

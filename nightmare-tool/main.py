@@ -641,6 +641,7 @@ class AutomationTab(QWidget):
         super().__init__()
         self.utils = utils
         self.hooked_clients = hooked_clients
+        self.dreamwater_task = None
 
         # ----- Creating Layout ----- #
         self.automation_group_layout = QVBoxLayout()
@@ -689,7 +690,16 @@ class AutomationTab(QWidget):
     async def handle_dream_water(self):
         print("[AUTOMATION] Dream Water pressed.")
 
-        await self.utils.dreamwater()
+        if not self.dreamwater_task:
+            self.dreamwater_task = asyncio.create_task(self.utils.dreamwater())
+            await self.dreamwater_task
+
+            self.dreamwater_task = None
+            return
+
+        if self.dreamwater_task:
+            self.dreamwater_task.cancel()
+            self.dreamwater_task = None
 
     @asyncSlot()
     async def handle_idols(self):
