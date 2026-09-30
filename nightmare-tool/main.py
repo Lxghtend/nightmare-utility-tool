@@ -1043,9 +1043,9 @@ class MainWindow(QWidget):
 
         self.enable_clients_tab = self.utils.read_config()["enable_clients_tab"]
 
-        self.use_raid_theme = self.utils.read_config()["use_raid_theme"]
+        self.use_dungeon_theme = self.utils.read_config()["use_dungeon_theme"]
 
-        if self.use_raid_theme:
+        if self.use_dungeon_theme:
             self.window().setStyleSheet(self.themes.nightmare)
 
         self.setWindowTitle("Nightmare Dungeon Cheat Tool - Lxghtend")

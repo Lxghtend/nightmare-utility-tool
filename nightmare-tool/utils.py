@@ -55,7 +55,7 @@ class Utils():
         # [General]
         settings["always_on_top"] = self.config_parser.getboolean("General", "always_on_top", fallback=True)
         settings["enable_clients_tab"] = self.config_parser.getboolean("General", "enable_clients_tab", fallback=True)
-        settings["use_raid_theme"] = self.config_parser.getboolean("General", "use_raid_theme", fallback=True)
+        settings["use_dungeon_theme"] = self.config_parser.getboolean("General", "use_dungeon_theme", fallback=True)
 
         # [Keybinds]
         settings["handle_xyz_sync"] = self.config_parser.get("Keybinds", "handle_xyz_sync", fallback="F3")
