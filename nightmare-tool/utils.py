@@ -192,7 +192,7 @@ class Utils():
 
     async def wait_for_range(self, client: Client):
         while True:
-            if self.is_visible_by_path(client.root_window, ['WorldView', 'NPCRangeWin']):
+            if await self.is_visible_by_path(client.root_window, ['WorldView', 'NPCRangeWin']):
                 return
             await asyncio.sleep(0.1)
 
